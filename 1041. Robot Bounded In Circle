@@ -1,0 +1,81 @@
+class Solution {
+    private enum Direction
+        {
+         North,
+            South,
+            East,
+            West
+        }
+    public boolean isRobotBounded(String instructions) {
+        
+        int x=0,y=0;
+        Direction direction=Direction.North;
+        
+        for(int instruction : instructions.toCharArray())
+        {
+            if(instruction == 'G')
+            {
+                switch(direction)
+                {
+                    case North : 
+                        y++;
+                        break;
+                    case South :
+                         y--;
+                        break;
+                    case East :
+                        x++;
+                        break;
+                    case West :
+                        x--;
+                }
+            } else if(instruction == 'L')
+            {
+                switch(direction)
+                {
+                    case North:
+                        direction=Direction.West;
+                        break;
+                    case South:
+                        direction=Direction.East;
+                        break;
+                    case East:
+                        direction=Direction.North;
+                        break;
+                    case West:
+                        direction=Direction.South;
+                        break;
+                }
+            } else if(instruction == 'R')
+            {
+                switch(direction)
+                {
+                    case North:
+                        direction=Direction.East;
+                        break;
+                    case South:
+                        direction=Direction.West;
+                        break;
+                    case East:
+                        direction=Direction.South;
+                        break;
+                    case West:
+                        direction=Direction.North;
+                }
+            }
+        
+                        
+                }
+        
+        if(x == 0 && y == 0)
+        {
+            return true;
+        }
+     if (direction == Direction.North)
+     { 
+         return false;
+     }
+        return true;
+            }
+        }
+    
