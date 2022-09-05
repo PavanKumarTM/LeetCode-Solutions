@@ -1,0 +1,28 @@
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+        int[] even=new int[nums.length];
+       int[] odd=new int[nums.length];
+        int k=0;
+        int m=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if((nums[i] % 2) == 0)
+            {
+                even[k]=nums[i];
+            k++;
+            }
+            else
+            {
+                odd[m]=nums[i];
+                m++;
+            }
+        }
+        int len=k;
+        int n=0;
+        for(int l=len;l<nums.length;l++)
+        {
+            even[l]=odd[n++];
+        }
+        return even;
+    }
+}
