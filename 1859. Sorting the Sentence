@@ -1,0 +1,19 @@
+class Solution {
+    public String sortSentence(String s) {
+        String arr[]=s.split(" ");
+       String result[]=new String[arr.length];
+    
+        String word;
+        String index;
+        
+        for(String str : arr)
+        {
+            word=str.substring(0,str.length()-1);
+            index=str.substring(str.length()-1,str.length());
+            
+            result[Integer.parseInt(index) - 1]=word;
+        }
+        
+        return String.join(" ",result);
+    }
+}
