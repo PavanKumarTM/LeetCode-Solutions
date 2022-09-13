@@ -1,0 +1,20 @@
+class Solution {
+    public int numJewelsInStones(String jewels, String stones) {
+      char[] jewelarray = jewels.toCharArray();
+char[] stonesarray = stones.toCharArray();
+        int count=0;
+        for(int i=0;i<stones.length();i++)
+        {
+            
+            for(int j=0;j<jewels.length();j++)
+            {
+                if(stonesarray[i]==jewelarray[j])
+                {
+                    count=count+1;
+                    
+                }
+            }
+        }
+        return count;
+    }
+}
