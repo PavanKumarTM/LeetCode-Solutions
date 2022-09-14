@@ -1,0 +1,31 @@
+class Solution {
+    
+    public void print(int i,List<List<Integer>> ans,List<Integer> ds,int target,int[] a)
+    {
+        if(i==a.length)
+        {
+            if(target==0)
+            {
+                ans.add(new ArrayList<>(ds));
+            }
+            return;
+        }
+        if(a[i]<=target)
+        {
+            ds.add(a[i]);
+            
+            print(i,ans,ds,target-a[i],a);
+                ds.remove(ds.size()-1);
+        }
+      
+        print(i+1,ans,ds,target,a);
+    }
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> ans=new ArrayList<>();
+        List<Integer> ds=new ArrayList<>();
+        
+        print(0,ans,ds,target,candidates);
+        
+        return ans;
+    }
+}
